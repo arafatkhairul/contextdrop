@@ -9,6 +9,10 @@ export interface ComponentStyle {
   textAlign?: 'left' | 'center' | 'right' | 'justify';
   lineHeight?: number;
   letterSpacing?: number;
+  textTransform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
+  textDecoration?: 'none' | 'underline' | 'line-through' | 'overline';
+  textShadow?: string;
+  background?: string;
   
   // Sizing
   width?: string;
