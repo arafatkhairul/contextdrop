@@ -308,8 +308,6 @@ export default function ComponentRenderer({ component, isSelected, isHovered, on
     <div
       ref={setCombinedNodeRef}
       style={style}
-      {...listeners}
-      {...attributes}
       className="relative"
     >
       <RenderComponent
