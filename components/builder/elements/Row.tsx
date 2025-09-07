@@ -308,10 +308,10 @@ export const rowConfig = {
     styles: {
       display: 'flex' as const,
       flexDirection: 'row' as const,
-      padding: '16px',
-      backgroundColor: '#f8fafc',
-      borderRadius: '8px',
-      border: '1px dashed #cbd5e1',
+      padding: '0',
+      backgroundColor: 'transparent',
+      borderRadius: '0',
+      border: 'none',
     },
     children: [],
     props: {
@@ -329,10 +329,10 @@ export const rowConfig = {
   defaultStyles: {
     display: 'flex' as const,
     flexDirection: 'row' as const,
-    padding: '16px',
-    backgroundColor: '#f8fafc',
-    borderRadius: '8px',
-    border: '1px dashed #cbd5e1',
+    padding: '0',
+    backgroundColor: 'transparent',
+    borderRadius: '0',
+    border: 'none',
   },
   defaultContent: '',
 };
