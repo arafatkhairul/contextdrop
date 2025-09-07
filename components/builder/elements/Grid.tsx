@@ -218,17 +218,30 @@ export const GridPropertiesComponent: React.FC<{ componentId: string }> = ({ com
         <div className="flex items-center space-x-2">
           <input
             type="color"
-            value={component.styles.backgroundColor || '#f8fafc'}
+            value={component.styles.backgroundColor || 'transparent'}
             onChange={(e) => handleStyleChange('backgroundColor', e.target.value)}
             className="w-8 h-8 border border-gray-300 rounded"
           />
           <input
             type="text"
-            value={component.styles.backgroundColor || '#f8fafc'}
+            value={component.styles.backgroundColor || 'transparent'}
             onChange={(e) => handleStyleChange('backgroundColor', e.target.value)}
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            placeholder="transparent, #ffffff, rgba(0,0,0,0.1)"
           />
         </div>
+      </div>
+
+      {/* Background Gradient */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Background Gradient</label>
+        <input
+          type="text"
+          value={component.styles.background || ''}
+          onChange={(e) => handleStyleChange('background', e.target.value)}
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          placeholder="linear-gradient(45deg, #ff6b6b, #4ecdc4)"
+        />
       </div>
 
       {/* Padding */}
@@ -260,12 +273,92 @@ export const GridPropertiesComponent: React.FC<{ componentId: string }> = ({ com
       {/* Border */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">Border</label>
+        <div className="grid grid-cols-2 gap-2">
+          <input
+            type="text"
+            value={component.styles.borderWidth || ''}
+            onChange={(e) => handleStyleChange('borderWidth', e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            placeholder="Width: 1px"
+          />
+          <select
+            value={component.styles.borderStyle || 'solid'}
+            onChange={(e) => handleStyleChange('borderStyle', e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            <option value="solid">Solid</option>
+            <option value="dashed">Dashed</option>
+            <option value="dotted">Dotted</option>
+            <option value="double">Double</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+        <input
+          type="color"
+          value={component.styles.borderColor || '#e5e7eb'}
+          onChange={(e) => handleStyleChange('borderColor', e.target.value)}
+          className="w-full h-8 border border-gray-300 rounded mt-2"
+        />
+      </div>
+
+      {/* Shadow */}
+      <div>
+        <div className="flex items-center justify-between mb-2">
+          <label className="block text-sm font-medium text-gray-700">Box Shadow</label>
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              checked={!!component.styles.boxShadow && component.styles.boxShadow !== 'none'}
+              onChange={(e) => handleStyleChange('boxShadow', e.target.checked ? '0 4px 6px -1px rgb(0 0 0 / 0.1)' : 'none')}
+              className="mr-2"
+            />
+            <span className="text-sm text-gray-600">Enable</span>
+          </div>
+        </div>
+        {component.styles.boxShadow && component.styles.boxShadow !== 'none' && (
+          <input
+            type="text"
+            value={component.styles.boxShadow || ''}
+            onChange={(e) => handleStyleChange('boxShadow', e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            placeholder="0 4px 6px -1px rgb(0 0 0 / 0.1)"
+          />
+        )}
+      </div>
+
+      {/* Margin */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Margin</label>
         <input
           type="text"
-          value={component.styles.border || '1px dashed #cbd5e1'}
-          onChange={(e) => handleStyleChange('border', e.target.value)}
+          value={component.styles.margin || '0'}
+          onChange={(e) => handleStyleChange('margin', e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          placeholder="e.g., 1px solid #e5e7eb"
+          placeholder="e.g., 16px, 1rem 2rem"
+        />
+      </div>
+
+      {/* Width */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Width</label>
+        <input
+          type="text"
+          value={component.styles.width || '100%'}
+          onChange={(e) => handleStyleChange('width', e.target.value)}
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          placeholder="e.g., 100%, 800px, auto"
+        />
+      </div>
+
+      {/* Height */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Height</label>
+        <input
+          type="text"
+          value={component.styles.height || 'auto'}
+          onChange={(e) => handleStyleChange('height', e.target.value)}
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          placeholder="e.g., auto, 400px, 50vh"
         />
       </div>
     </div>
