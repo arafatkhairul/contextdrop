@@ -1,0 +1,141 @@
+import { ComponentLibraryItem } from '@/types/builder';
+import { AiFillContainer } from 'react-icons/ai';
+import { 
+  FiBox,  
+  FiColumns, 
+  FiLayers, 
+  FiType, 
+  FiFileText, 
+  FiAlignLeft, 
+  FiImage, 
+  FiMousePointer 
+} from 'react-icons/fi';
+
+
+export const componentLibrary: ComponentLibraryItem[] = [
+  {
+    type: 'Section',
+    label: 'Section',
+    icon: FiBox,
+    description: 'Container section for grouping content',
+    defaultStyles: {
+      display: 'block',
+      padding: '32px',
+      backgroundColor: '#ffffff',
+      borderRadius: '8px',
+      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+    },
+  },
+  {
+    type: 'Container',
+    label: 'Container',
+    icon: AiFillContainer,
+    description: 'Content container with max width',
+    defaultStyles: {
+      display: 'block',
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: '16px',
+    },
+  },
+  {
+    type: 'Row',
+    label: 'Row',
+    icon: FiColumns,
+    description: 'Horizontal flex container',
+    defaultStyles: {
+      display: 'flex',
+      flexDirection: 'row',
+      gap: '16px',
+      alignItems: 'stretch',
+    },
+  },
+  {
+    type: 'Column',
+    label: 'Column',
+    icon: FiLayers,
+    description: 'Vertical flex container',
+    defaultStyles: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '16px',
+      flex: '1',
+    },
+  },
+  {
+    type: 'Heading',
+    label: 'Heading',
+    icon: FiType,
+    description: 'H1-H6 heading text',
+    defaultContent: 'Your Heading Here',
+    defaultStyles: {
+      fontSize: 32,
+      fontWeight: 'bold',
+      color: '#1f2937',
+      margin: '0 0 16px 0',
+      lineHeight: 1.2,
+    },
+  },
+  {
+    type: 'Text',
+    label: 'Text',
+    icon: FiFileText,
+    description: 'Plain text paragraph',
+    defaultContent: 'Add your text content here. You can edit this by selecting the text and typing.',
+    defaultStyles: {
+      fontSize: 16,
+      color: '#374151',
+      lineHeight: 1.6,
+      margin: '0 0 16px 0',
+    },
+  },
+  {
+    type: 'Paragraph',
+    label: 'Paragraph',
+    icon: FiAlignLeft,
+    description: 'Styled paragraph text',
+    defaultContent: 'This is a paragraph component. You can customize its appearance using the properties panel.',
+    defaultStyles: {
+      fontSize: 16,
+      color: '#374151',
+      lineHeight: 1.6,
+      margin: '0 0 16px 0',
+      padding: '12px',
+      backgroundColor: '#f9fafb',
+      borderRadius: '4px',
+    },
+  },
+  {
+    type: 'Button',
+    label: 'Button',
+    icon: FiMousePointer,
+    description: 'Clickable button element',
+    defaultContent: 'Click Me',
+    defaultStyles: {
+      display: 'inline-block',
+      padding: '12px 24px',
+      backgroundColor: '#3b82f6',
+      color: '#ffffff',
+      borderRadius: '6px',
+      border: 'none',
+      fontSize: 16,
+      fontWeight: '500',
+      cursor: 'pointer',
+      textAlign: 'center',
+      transition: 'all 0.2s ease',
+    },
+  },
+  {
+    type: 'Image',
+    label: 'Image',
+    icon: FiImage,
+    description: 'Image element with placeholder',
+    defaultContent: 'https://via.placeholder.com/400x300?text=Your+Image',
+    defaultStyles: {
+      maxWidth: '100%',
+      height: 'auto',
+      borderRadius: '8px',
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    },
+  },
+];
