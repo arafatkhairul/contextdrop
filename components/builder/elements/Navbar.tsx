@@ -31,6 +31,97 @@ const BRAND_OPTIONS = [
   { name: 'Logo Only', value: 'logo' },
 ];
 
+// Navbar height options
+const HEIGHT_OPTIONS = [
+  { name: 'Small (4rem)', value: '4rem' },
+  { name: 'Medium (5.5rem)', value: '5.5rem' },
+  { name: 'Large (6rem)', value: '6rem' },
+  { name: 'Extra Large (7rem)', value: '7rem' },
+];
+
+// Border radius options
+const BORDER_RADIUS_OPTIONS = [
+  { name: 'None', value: '0' },
+  { name: 'Small', value: '0.25rem' },
+  { name: 'Medium', value: '0.5rem' },
+  { name: 'Large', value: '1rem' },
+  { name: 'Full', value: '9999px' },
+];
+
+// Shadow options
+const SHADOW_OPTIONS = [
+  { name: 'None', value: 'none' },
+  { name: 'Small', value: '0 1px 2px 0 rgb(0 0 0 / 0.05)' },
+  { name: 'Medium', value: '0 4px 6px -1px rgb(0 0 0 / 0.1)' },
+  { name: 'Large', value: '0 10px 15px -3px rgb(0 0 0 / 0.1)' },
+  { name: 'Extra Large', value: '0 25px 50px -12px rgb(0 0 0 / 0.25)' },
+];
+
+// Backdrop blur options
+const BACKDROP_BLUR_OPTIONS = [
+  { name: 'None', value: 'none' },
+  { name: 'Small', value: 'blur(4px)' },
+  { name: 'Medium', value: 'blur(8px)' },
+  { name: 'Large', value: 'blur(16px)' },
+];
+
+// Font weight options
+const FONT_WEIGHT_OPTIONS = [
+  { name: 'Light', value: '300' },
+  { name: 'Normal', value: '400' },
+  { name: 'Medium', value: '500' },
+  { name: 'Semibold', value: '600' },
+  { name: 'Bold', value: '700' },
+];
+
+// Font size options
+const FONT_SIZE_OPTIONS = [
+  { name: 'Small', value: '0.875rem' },
+  { name: 'Base', value: '1rem' },
+  { name: 'Large', value: '1.125rem' },
+  { name: 'XL', value: '1.25rem' },
+  { name: '2XL', value: '1.5rem' },
+];
+
+// Padding options
+const PADDING_OPTIONS = [
+  { name: 'None', value: '0' },
+  { name: 'Small', value: '0.5rem' },
+  { name: 'Medium', value: '1rem' },
+  { name: 'Large', value: '1.5rem' },
+  { name: 'Extra Large', value: '2rem' },
+];
+
+// Gap options
+const GAP_OPTIONS = [
+  { name: 'None', value: '0' },
+  { name: 'Small', value: '0.5rem' },
+  { name: 'Medium', value: '1rem' },
+  { name: 'Large', value: '1.5rem' },
+  { name: 'Extra Large', value: '2rem' },
+];
+
+// Animation options
+const ANIMATION_OPTIONS = [
+  { name: 'None', value: 'none' },
+  { name: 'Fade In', value: 'fadeIn' },
+  { name: 'Slide Down', value: 'slideDown' },
+  { name: 'Bounce', value: 'bounce' },
+  { name: 'Pulse', value: 'pulse' },
+];
+
+// Color theme options
+const COLOR_THEME_OPTIONS = [
+  { name: 'Default', value: 'default' },
+  { name: 'Emerald', value: 'emerald' },
+  { name: 'Blue', value: 'blue' },
+  { name: 'Purple', value: 'purple' },
+  { name: 'Pink', value: 'pink' },
+  { name: 'Orange', value: 'orange' },
+  { name: 'Red', value: 'red' },
+  { name: 'Gray', value: 'gray' },
+];
+
 // Navbar Render Component
 export const NavbarRenderComponent: React.FC<{
   component: WebComponent;
@@ -62,46 +153,94 @@ export const NavbarRenderComponent: React.FC<{
     showUser = true,
     showNotifications = true,
     notificationCount = 3,
+    // New customizable options
+    height = '5.5rem',
+    borderRadius = '0',
+    shadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+    backdropBlur = 'blur(8px)',
+    backgroundColor = 'rgba(255, 255, 255, 0.9)',
+    textColor = '#374151',
+    hoverColor = '#10b981',
+    activeColor = '#10b981',
+    fontWeight = '500',
+    fontSize = '1rem',
+    padding = '1rem',
+    gap = '1rem',
+    animation = 'none',
+    colorTheme = 'default',
+    sticky = false,
+    fullWidth = false,
   } = component.props || {};
 
   const getNavbarClasses = () => {
-    const baseClasses = 'relative z-20 w-full border-b shadow-lg';
+    const baseClasses = 'relative z-20 w-full border-b';
+    const stickyClass = sticky ? 'sticky top-0' : '';
+    const animationClass = animation !== 'none' ? `animate-${animation}` : '';
     
-    switch (variation) {
-      case 'dark':
-        return `${baseClasses} border-gray-700 bg-gray-900/90 shadow-gray-900/5`;
-      case 'transparent':
-        return `${baseClasses} border-transparent bg-transparent shadow-none`;
-      default:
-        return `${baseClasses} border-slate-200 bg-white/90 shadow-slate-700/5`;
+    return `${baseClasses} ${stickyClass} ${animationClass}`;
+  };
+
+  const getNavbarStyles = () => {
+    const styles: React.CSSProperties = {
+      height: height,
+      borderRadius: borderRadius,
+      boxShadow: shadow !== 'none' ? shadow : undefined,
+      backdropFilter: backdropBlur !== 'none' ? backdropBlur : undefined,
+      backgroundColor: backgroundColor,
+      color: textColor,
+      fontWeight: fontWeight,
+      fontSize: fontSize,
+      padding: padding,
+      gap: gap,
+    };
+
+    // Apply color theme
+    if (colorTheme !== 'default') {
+      switch (colorTheme) {
+        case 'emerald':
+          styles.backgroundColor = 'rgba(16, 185, 129, 0.9)';
+          styles.color = '#ffffff';
+          break;
+        case 'blue':
+          styles.backgroundColor = 'rgba(59, 130, 246, 0.9)';
+          styles.color = '#ffffff';
+          break;
+        case 'purple':
+          styles.backgroundColor = 'rgba(147, 51, 234, 0.9)';
+          styles.color = '#ffffff';
+          break;
+        case 'pink':
+          styles.backgroundColor = 'rgba(236, 72, 153, 0.9)';
+          styles.color = '#ffffff';
+          break;
+        case 'orange':
+          styles.backgroundColor = 'rgba(249, 115, 22, 0.9)';
+          styles.color = '#ffffff';
+          break;
+        case 'red':
+          styles.backgroundColor = 'rgba(239, 68, 68, 0.9)';
+          styles.color = '#ffffff';
+          break;
+        case 'gray':
+          styles.backgroundColor = 'rgba(75, 85, 99, 0.9)';
+          styles.color = '#ffffff';
+          break;
+      }
     }
+
+    return styles;
   };
 
   const getTextClasses = () => {
-    switch (variation) {
-      case 'dark':
-        return 'text-white';
-      default:
-        return 'text-slate-700';
-    }
+    return `font-${fontWeight === '300' ? 'light' : fontWeight === '400' ? 'normal' : fontWeight === '500' ? 'medium' : fontWeight === '600' ? 'semibold' : 'bold'}`;
   };
 
   const getHoverClasses = () => {
-    switch (variation) {
-      case 'dark':
-        return 'hover:text-emerald-400 focus:text-emerald-300';
-      default:
-        return 'hover:text-emerald-500 focus:text-emerald-600';
-    }
+    return `hover:opacity-80 transition-colors duration-300`;
   };
 
   const getActiveClasses = () => {
-    switch (variation) {
-      case 'dark':
-        return 'text-emerald-400';
-      default:
-        return 'text-emerald-500';
-    }
+    return `opacity-100 font-semibold`;
   };
 
   const getMobileMenuClasses = () => {
@@ -136,12 +275,13 @@ export const NavbarRenderComponent: React.FC<{
       )}
 
       {/* Main Navbar */}
-      <header className={getNavbarClasses()}>
-        <div className="relative mx-auto max-w-full px-6 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
+      <header className={getNavbarClasses()} style={getNavbarStyles()}>
+        <div className={`relative mx-auto max-w-full px-6 ${fullWidth ? 'max-w-none' : 'lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]'}`}>
           <nav 
             aria-label="main navigation" 
-            className={`flex h-[5.5rem] items-stretch justify-between font-medium ${getTextClasses()}`} 
+            className={`flex items-stretch justify-between font-medium ${getTextClasses()}`} 
             role="navigation"
+            style={{ height: height }}
           >
             {/* Brand */}
             <a 
@@ -346,6 +486,59 @@ export const NavbarPropertiesComponent: React.FC<{
             ))}
           </select>
         </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Height</label>
+            <select
+              value={component.props?.height || '5.5rem'}
+              onChange={(e) => handlePropChange('height', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              {HEIGHT_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Border Radius</label>
+            <select
+              value={component.props?.borderRadius || '0'}
+              onChange={(e) => handlePropChange('borderRadius', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              {BORDER_RADIUS_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-4">
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              checked={component.props?.sticky || false}
+              onChange={(e) => handlePropChange('sticky', e.target.checked)}
+              className="mr-2"
+            />
+            <label className="text-sm font-medium text-gray-700">Sticky Navigation</label>
+          </div>
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              checked={component.props?.fullWidth || false}
+              onChange={(e) => handlePropChange('fullWidth', e.target.checked)}
+              className="mr-2"
+            />
+            <label className="text-sm font-medium text-gray-700">Full Width</label>
+          </div>
+        </div>
       </div>
 
       {/* Top Bar Settings */}
@@ -490,6 +683,191 @@ export const NavbarPropertiesComponent: React.FC<{
           </>
         )}
       </div>
+
+      {/* Styling Options */}
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-gray-900">Styling Options</h3>
+        
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Shadow</label>
+            <select
+              value={component.props?.shadow || '0 4px 6px -1px rgb(0 0 0 / 0.1)'}
+              onChange={(e) => handlePropChange('shadow', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              {SHADOW_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Backdrop Blur</label>
+            <select
+              value={component.props?.backdropBlur || 'blur(8px)'}
+              onChange={(e) => handlePropChange('backdropBlur', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              {BACKDROP_BLUR_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Font Weight</label>
+            <select
+              value={component.props?.fontWeight || '500'}
+              onChange={(e) => handlePropChange('fontWeight', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              {FONT_WEIGHT_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Font Size</label>
+            <select
+              value={component.props?.fontSize || '1rem'}
+              onChange={(e) => handlePropChange('fontSize', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              {FONT_SIZE_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Padding</label>
+            <select
+              value={component.props?.padding || '1rem'}
+              onChange={(e) => handlePropChange('padding', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              {PADDING_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Gap</label>
+            <select
+              value={component.props?.gap || '1rem'}
+              onChange={(e) => handlePropChange('gap', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              {GAP_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
+
+      {/* Color & Theme */}
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-gray-900">Color & Theme</h3>
+        
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Color Theme</label>
+          <select
+            value={component.props?.colorTheme || 'default'}
+            onChange={(e) => handlePropChange('colorTheme', e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          >
+            {COLOR_THEME_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Background Color</label>
+            <input
+              type="color"
+              value={component.props?.backgroundColor || '#ffffff'}
+              onChange={(e) => handlePropChange('backgroundColor', e.target.value)}
+              className="w-full h-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Text Color</label>
+            <input
+              type="color"
+              value={component.props?.textColor || '#374151'}
+              onChange={(e) => handlePropChange('textColor', e.target.value)}
+              className="w-full h-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Hover Color</label>
+            <input
+              type="color"
+              value={component.props?.hoverColor || '#10b981'}
+              onChange={(e) => handlePropChange('hoverColor', e.target.value)}
+              className="w-full h-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Active Color</label>
+            <input
+              type="color"
+              value={component.props?.activeColor || '#10b981'}
+              onChange={(e) => handlePropChange('activeColor', e.target.value)}
+              className="w-full h-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Animation */}
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-gray-900">Animation</h3>
+        
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Animation Type</label>
+          <select
+            value={component.props?.animation || 'none'}
+            onChange={(e) => handlePropChange('animation', e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          >
+            {ANIMATION_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
     </div>
   );
 };
@@ -538,6 +916,23 @@ export const navbarConfig = {
     showUser: true,
     showNotifications: true,
     notificationCount: 3,
+    // New customizable options
+    height: '5.5rem',
+    borderRadius: '0',
+    shadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+    backdropBlur: 'blur(8px)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    textColor: '#374151',
+    hoverColor: '#10b981',
+    activeColor: '#10b981',
+    fontWeight: '500',
+    fontSize: '1rem',
+    padding: '1rem',
+    gap: '1rem',
+    animation: 'none',
+    colorTheme: 'default',
+    sticky: false,
+    fullWidth: false,
   },
   RenderComponent: NavbarRenderComponent,
   PropertiesComponent: NavbarPropertiesComponent,
