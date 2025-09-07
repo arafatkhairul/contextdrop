@@ -13,6 +13,7 @@ import { flexConfig } from '@/components/builder/elements/Flex';
 import { gridConfig } from '@/components/builder/elements/Grid';
 import { columnConfig } from '@/components/builder/elements/Column';
 import { rowConfig } from '@/components/builder/elements/Row';
+import { navbarConfig } from '@/components/builder/elements/Navbar';
 
 // This interface defines everything a component needs to function in the builder
 export interface ComponentConfig {
@@ -76,6 +77,7 @@ registerComponent(flexConfig);
 registerComponent(gridConfig);
 registerComponent(columnConfig);
 registerComponent(rowConfig);
+registerComponent(navbarConfig);
 
 // Helper function to get all components by category
 export const getComponentsByCategory = (category: ComponentConfig['category']) => {

@@ -7,6 +7,7 @@ import { FlexRenderComponent } from '@/components/builder/elements/Flex';
 import { GridRenderComponent } from '@/components/builder/elements/Grid';
 import { ColumnRenderComponent } from '@/components/builder/elements/Column';
 import { RowRenderComponent } from '@/components/builder/elements/Row';
+import { NavbarRenderComponent } from '@/components/builder/elements/Navbar';
 
 interface ComponentRendererProps {
   component: WebComponent;
