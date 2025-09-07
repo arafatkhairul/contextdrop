@@ -334,23 +334,9 @@ export const HeaderRenderComponent: React.FC<{
       case 'icon-links-left-cta-right':
       case 'icon-links-left-cta-right-dark':
         return (
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between w-full">
             <div className="flex items-center space-x-8">
               {renderLogo()}
-              {renderNavigation()}
-            </div>
-            {renderActions()}
-          </div>
-        );
-      
-      case 'icon-left-links-center-cta-right':
-      case 'icon-left-links-center-cta-right-dark':
-        return (
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              {renderLogo()}
-            </div>
-            <div className="flex items-center justify-center flex-1">
               {renderNavigation()}
             </div>
             <div className="flex items-center">
@@ -359,11 +345,29 @@ export const HeaderRenderComponent: React.FC<{
           </div>
         );
       
+      case 'icon-left-links-center-cta-right':
+      case 'icon-left-links-center-cta-right-dark':
+        return (
+          <div className="flex items-center w-full">
+            <div className="flex items-center flex-shrink-0">
+              {renderLogo()}
+            </div>
+            <div className="flex items-center justify-center flex-1 px-8">
+              {renderNavigation()}
+            </div>
+            <div className="flex items-center flex-shrink-0">
+              {renderActions()}
+            </div>
+          </div>
+        );
+      
       case 'icon-left-links-cta-right':
       case 'icon-left-links-cta-right-dark':
         return (
-          <div className="flex items-center justify-between">
-            {renderLogo()}
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center flex-shrink-0">
+              {renderLogo()}
+            </div>
             <div className="flex items-center space-x-8">
               {renderNavigation()}
               {renderActions()}
@@ -374,7 +378,7 @@ export const HeaderRenderComponent: React.FC<{
       case 'icon-left-links-user-right':
       case 'icon-left-links-user-right-dark':
         return (
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between w-full">
             <div className="flex items-center space-x-8">
               {renderLogo()}
               {renderNavigation()}
@@ -402,12 +406,14 @@ export const HeaderRenderComponent: React.FC<{
       
       default:
         return (
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between w-full">
             <div className="flex items-center space-x-8">
               {renderLogo()}
               {renderNavigation()}
             </div>
-            {renderActions()}
+            <div className="flex items-center">
+              {renderActions()}
+            </div>
           </div>
         );
     }
