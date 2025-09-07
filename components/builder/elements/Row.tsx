@@ -148,7 +148,7 @@ export const RowPropertiesComponent: React.FC<{ componentId: string }> = ({ comp
           type="text"
           value={component.props?.height || 'auto'}
           onChange={(e) => handlePropChange('height', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., auto, 100px, 20vh"
         />
       </div>
@@ -160,7 +160,7 @@ export const RowPropertiesComponent: React.FC<{ componentId: string }> = ({ comp
           type="text"
           value={component.props?.minHeight || '100px'}
           onChange={(e) => handlePropChange('minHeight', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 100px, 10rem"
         />
       </div>
@@ -172,7 +172,7 @@ export const RowPropertiesComponent: React.FC<{ componentId: string }> = ({ comp
           type="text"
           value={component.props?.maxHeight || 'none'}
           onChange={(e) => handlePropChange('maxHeight', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., none, 300px, 50vh"
         />
       </div>
@@ -184,7 +184,7 @@ export const RowPropertiesComponent: React.FC<{ componentId: string }> = ({ comp
           type="text"
           value={component.props?.gap || '16px'}
           onChange={(e) => handlePropChange('gap', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 16px, 1rem"
         />
       </div>
@@ -195,7 +195,7 @@ export const RowPropertiesComponent: React.FC<{ componentId: string }> = ({ comp
         <select
           value={component.props?.alignItems || 'stretch'}
           onChange={(e) => handlePropChange('alignItems', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="stretch">Stretch</option>
           <option value="flex-start">Start</option>
@@ -211,7 +211,7 @@ export const RowPropertiesComponent: React.FC<{ componentId: string }> = ({ comp
         <select
           value={component.props?.justifyContent || 'flex-start'}
           onChange={(e) => handlePropChange('justifyContent', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="flex-start">Start</option>
           <option value="center">Center</option>
@@ -228,7 +228,7 @@ export const RowPropertiesComponent: React.FC<{ componentId: string }> = ({ comp
         <select
           value={component.props?.wrap || 'nowrap'}
           onChange={(e) => handlePropChange('wrap', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="nowrap">No Wrap</option>
           <option value="wrap">Wrap</option>
@@ -262,7 +262,7 @@ export const RowPropertiesComponent: React.FC<{ componentId: string }> = ({ comp
           type="text"
           value={component.styles.padding || '16px'}
           onChange={(e) => handleStyleChange('padding', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 16px, 1rem 2rem"
         />
       </div>
@@ -288,7 +288,7 @@ export const RowPropertiesComponent: React.FC<{ componentId: string }> = ({ comp
           type="text"
           value={component.styles.border || '1px dashed #cbd5e1'}
           onChange={(e) => handleStyleChange('border', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 1px solid #e5e7eb"
         />
       </div>

@@ -69,7 +69,7 @@ export const ButtonPropertiesComponent: React.FC<{ componentId: string }> = ({ c
           type="text"
           value={component.content || ''}
           onChange={(e) => handleContentChange(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Enter button text..."
         />
       </div>
@@ -158,7 +158,7 @@ export const ButtonPropertiesComponent: React.FC<{ componentId: string }> = ({ c
         <select
           value={component.styles.fontWeight || '500'}
           onChange={(e) => handleStyleChange('fontWeight', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="normal">Normal</option>
           <option value="500">Medium</option>

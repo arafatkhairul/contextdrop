@@ -104,7 +104,7 @@ export const CardPropertiesComponent: React.FC<{ componentId: string }> = ({ com
         <textarea
           value={component.content || ''}
           onChange={(e) => handleContentChange(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           rows={3}
           placeholder="Enter card content..."
         />
@@ -117,7 +117,7 @@ export const CardPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.props?.title || ''}
           onChange={(e) => handlePropChange('title', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Enter card title..."
         />
       </div>
@@ -129,7 +129,7 @@ export const CardPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.props?.subtitle || ''}
           onChange={(e) => handlePropChange('subtitle', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Enter card subtitle..."
         />
       </div>
@@ -184,7 +184,7 @@ export const CardPropertiesComponent: React.FC<{ componentId: string }> = ({ com
         <select
           value={component.styles.boxShadow || '0 1px 3px rgba(0, 0, 0, 0.1)'}
           onChange={(e) => handleStyleChange('boxShadow', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="none">None</option>
           <option value="0 1px 3px rgba(0, 0, 0, 0.1)">Small</option>

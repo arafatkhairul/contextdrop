@@ -112,7 +112,7 @@ export const InputPropertiesComponent: React.FC<{ componentId: string }> = ({ co
           type="text"
           value={component.props?.label || ''}
           onChange={(e) => handlePropChange('label', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Enter label..."
         />
       </div>
@@ -124,7 +124,7 @@ export const InputPropertiesComponent: React.FC<{ componentId: string }> = ({ co
           type="text"
           value={component.props?.placeholder || ''}
           onChange={(e) => handlePropChange('placeholder', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Enter placeholder text..."
         />
       </div>
@@ -135,7 +135,7 @@ export const InputPropertiesComponent: React.FC<{ componentId: string }> = ({ co
         <select
           value={component.props?.type || 'text'}
           onChange={(e) => handlePropChange('type', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="text">Text</option>
           <option value="email">Email</option>
@@ -154,7 +154,7 @@ export const InputPropertiesComponent: React.FC<{ componentId: string }> = ({ co
           type="text"
           value={component.props?.helpText || ''}
           onChange={(e) => handlePropChange('helpText', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Enter help text..."
         />
       </div>

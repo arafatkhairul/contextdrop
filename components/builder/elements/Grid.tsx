@@ -147,7 +147,7 @@ export const GridPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           max="12"
           value={component.props?.columns || 3}
           onChange={(e) => handlePropChange('columns', parseInt(e.target.value))}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
@@ -160,7 +160,7 @@ export const GridPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           max="12"
           value={component.props?.rows || 2}
           onChange={(e) => handlePropChange('rows', parseInt(e.target.value))}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
@@ -171,7 +171,7 @@ export const GridPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.props?.gap || '16px'}
           onChange={(e) => handlePropChange('gap', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 16px, 1rem"
         />
       </div>
@@ -183,7 +183,7 @@ export const GridPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.props?.columnGap || '16px'}
           onChange={(e) => handlePropChange('columnGap', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 16px, 1rem"
         />
       </div>
@@ -195,7 +195,7 @@ export const GridPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.props?.rowGap || '16px'}
           onChange={(e) => handlePropChange('rowGap', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 16px, 1rem"
         />
       </div>
@@ -207,7 +207,7 @@ export const GridPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.props?.minHeight || '200px'}
           onChange={(e) => handlePropChange('minHeight', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 200px, 50vh"
         />
       </div>
@@ -238,7 +238,7 @@ export const GridPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.styles.padding || '16px'}
           onChange={(e) => handleStyleChange('padding', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 16px, 1rem 2rem"
         />
       </div>
@@ -264,7 +264,7 @@ export const GridPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.styles.border || '1px dashed #cbd5e1'}
           onChange={(e) => handleStyleChange('border', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 1px solid #e5e7eb"
         />
       </div>

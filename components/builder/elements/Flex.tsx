@@ -206,7 +206,7 @@ export const FlexPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.props?.gap || '0'}
           onChange={(e) => handlePropChange('gap', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 16px, 1rem, 0.5rem"
         />
       </div>
@@ -218,7 +218,7 @@ export const FlexPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.props?.minHeight || '100px'}
           onChange={(e) => handlePropChange('minHeight', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 100px, 200px, 50vh"
         />
       </div>
@@ -237,7 +237,7 @@ export const FlexPropertiesComponent: React.FC<{ componentId: string }> = ({ com
             type="text"
             value={component.styles.backgroundColor || '#f8fafc'}
             onChange={(e) => handleStyleChange('backgroundColor', e.target.value)}
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
           />
         </div>
       </div>
@@ -249,7 +249,7 @@ export const FlexPropertiesComponent: React.FC<{ componentId: string }> = ({ com
           type="text"
           value={component.styles.padding || '16px'}
           onChange={(e) => handleStyleChange('padding', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 16px, 1rem 2rem"
         />
       </div>

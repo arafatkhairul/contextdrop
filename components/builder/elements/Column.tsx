@@ -147,7 +147,7 @@ export const ColumnPropertiesComponent: React.FC<{ componentId: string }> = ({ c
           type="text"
           value={component.props?.width || 'auto'}
           onChange={(e) => handlePropChange('width', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., auto, 300px, 50%, 1fr"
         />
       </div>
@@ -159,7 +159,7 @@ export const ColumnPropertiesComponent: React.FC<{ componentId: string }> = ({ c
           type="text"
           value={component.props?.minWidth || '200px'}
           onChange={(e) => handlePropChange('minWidth', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 200px, 20rem"
         />
       </div>
@@ -171,7 +171,7 @@ export const ColumnPropertiesComponent: React.FC<{ componentId: string }> = ({ c
           type="text"
           value={component.props?.maxWidth || 'none'}
           onChange={(e) => handlePropChange('maxWidth', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., none, 500px, 50vw"
         />
       </div>
@@ -183,7 +183,7 @@ export const ColumnPropertiesComponent: React.FC<{ componentId: string }> = ({ c
           type="text"
           value={component.props?.gap || '16px'}
           onChange={(e) => handlePropChange('gap', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 16px, 1rem"
         />
       </div>
@@ -194,7 +194,7 @@ export const ColumnPropertiesComponent: React.FC<{ componentId: string }> = ({ c
         <select
           value={component.props?.alignItems || 'stretch'}
           onChange={(e) => handlePropChange('alignItems', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="stretch">Stretch</option>
           <option value="flex-start">Start</option>
@@ -210,7 +210,7 @@ export const ColumnPropertiesComponent: React.FC<{ componentId: string }> = ({ c
         <select
           value={component.props?.justifyContent || 'flex-start'}
           onChange={(e) => handlePropChange('justifyContent', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="flex-start">Start</option>
           <option value="center">Center</option>
@@ -247,7 +247,7 @@ export const ColumnPropertiesComponent: React.FC<{ componentId: string }> = ({ c
           type="text"
           value={component.styles.padding || '16px'}
           onChange={(e) => handleStyleChange('padding', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 16px, 1rem 2rem"
         />
       </div>
@@ -259,7 +259,7 @@ export const ColumnPropertiesComponent: React.FC<{ componentId: string }> = ({ c
           type="text"
           value={component.styles.minHeight || '200px'}
           onChange={(e) => handleStyleChange('minHeight', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 200px, 50vh"
         />
       </div>
@@ -285,7 +285,7 @@ export const ColumnPropertiesComponent: React.FC<{ componentId: string }> = ({ c
           type="text"
           value={component.styles.border || '1px dashed #cbd5e1'}
           onChange={(e) => handleStyleChange('border', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="e.g., 1px solid #e5e7eb"
         />
       </div>

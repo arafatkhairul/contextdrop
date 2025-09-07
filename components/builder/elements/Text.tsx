@@ -68,7 +68,7 @@ export const TextPropertiesComponent: React.FC<{ componentId: string }> = ({ com
         <textarea
           value={component.content || ''}
           onChange={(e) => handleContentChange(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           rows={3}
           placeholder="Enter your text content..."
         />
@@ -113,7 +113,7 @@ export const TextPropertiesComponent: React.FC<{ componentId: string }> = ({ com
         <select
           value={component.styles.fontWeight || 'normal'}
           onChange={(e) => handleStyleChange('fontWeight', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="normal">Normal</option>
           <option value="medium">Medium</option>
@@ -128,7 +128,7 @@ export const TextPropertiesComponent: React.FC<{ componentId: string }> = ({ com
         <select
           value={component.styles.textAlign || 'left'}
           onChange={(e) => handleStyleChange('textAlign', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <option value="left">Left</option>
           <option value="center">Center</option>
