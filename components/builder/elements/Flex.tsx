@@ -3,6 +3,7 @@ import { WebComponent } from '@/types/builder';
 import { useBuilderStore } from '@/store/builderStore';
 import { FiLayers } from 'react-icons/fi';
 import ComponentRenderer from '../ComponentRenderer';
+import { useDroppable } from '@dnd-kit/core';
 
 // Helper function to convert styles object to CSS string
 const stylesToCSS = (styles: WebComponent['styles']): React.CSSProperties => {
@@ -28,12 +29,21 @@ export const FlexRenderComponent: React.FC<{
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }> = ({ component, isSelected, isHovered, onClick, onMouseEnter, onMouseLeave }) => {
+  const { addComponent } = useBuilderStore();
   const direction = component.props?.direction || 'row';
   const justifyContent = component.props?.justifyContent || 'flex-start';
   const alignItems = component.props?.alignItems || 'stretch';
   const wrap = component.props?.wrap || 'nowrap';
   const gap = component.props?.gap || '0';
   const minHeight = component.props?.minHeight || '100px';
+
+  const { isOver, setNodeRef } = useDroppable({
+    id: `flex-drop-zone-${component.id}`,
+    data: {
+      isLayoutDropZone: true,
+      parentId: component.id,
+    },
+  });
 
   const getFlexStyles = (): React.CSSProperties => {
     return {
@@ -53,10 +63,12 @@ export const FlexRenderComponent: React.FC<{
 
   return (
     <div
+      ref={setNodeRef}
       className={`
         relative cursor-pointer transition-all duration-200
         ${isSelected ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}
         ${isHovered ? 'shadow-lg' : 'shadow-sm'}
+        ${isOver ? 'ring-2 ring-green-500 ring-opacity-50 bg-green-50' : ''}
         hover:shadow-md
       `}
       style={getFlexStyles()}

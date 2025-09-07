@@ -3,6 +3,7 @@ import { WebComponent } from '@/types/builder';
 import { useBuilderStore } from '@/store/builderStore';
 import { FiAlignLeft } from 'react-icons/fi';
 import ComponentRenderer from '../ComponentRenderer';
+import { useDroppable } from '@dnd-kit/core';
 
 // Helper function to convert styles object to CSS string
 const stylesToCSS = (styles: WebComponent['styles']): React.CSSProperties => {
@@ -28,6 +29,7 @@ export const RowRenderComponent: React.FC<{
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }> = ({ component, isSelected, isHovered, onClick, onMouseEnter, onMouseLeave }) => {
+  const { addComponent } = useBuilderStore();
   const height = component.props?.height || 'auto';
   const minHeight = component.props?.minHeight || '100px';
   const maxHeight = component.props?.maxHeight || 'none';
@@ -35,6 +37,14 @@ export const RowRenderComponent: React.FC<{
   const alignItems = component.props?.alignItems || 'stretch';
   const justifyContent = component.props?.justifyContent || 'flex-start';
   const wrap = component.props?.wrap || 'nowrap';
+
+  const { isOver, setNodeRef } = useDroppable({
+    id: `row-drop-zone-${component.id}`,
+    data: {
+      isLayoutDropZone: true,
+      parentId: component.id,
+    },
+  });
 
   const getRowStyles = (): React.CSSProperties => {
     return {
@@ -56,10 +66,12 @@ export const RowRenderComponent: React.FC<{
 
   return (
     <div
+      ref={setNodeRef}
       className={`
         relative cursor-pointer transition-all duration-200
         ${isSelected ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}
         ${isHovered ? 'shadow-lg' : 'shadow-sm'}
+        ${isOver ? 'ring-2 ring-green-500 ring-opacity-50 bg-green-50' : ''}
         hover:shadow-md
       `}
       style={getRowStyles()}

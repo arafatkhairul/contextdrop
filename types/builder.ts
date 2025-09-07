@@ -105,7 +105,7 @@ export interface BuilderState {
   // Actions
   setSelectedComponent: (id: string | null) => void;
   setHoveredComponent: (id: string | null) => void;
-  addComponent: (component: Omit<WebComponent, 'id'>) => void;
+  addComponent: (component: Omit<WebComponent, 'id'>, parentId?: string) => void;
   updateComponentStyles: (id: string, newStyles: Partial<ComponentStyle>) => void;
   updateComponentContent: (id: string, content: string) => void;
   updateComponentProps: (id: string, newProps: Record<string, any>) => void;

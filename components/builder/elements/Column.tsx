@@ -3,6 +3,7 @@ import { WebComponent } from '@/types/builder';
 import { useBuilderStore } from '@/store/builderStore';
 import { FiColumns } from 'react-icons/fi';
 import ComponentRenderer from '../ComponentRenderer';
+import { useDroppable } from '@dnd-kit/core';
 
 // Helper function to convert styles object to CSS string
 const stylesToCSS = (styles: WebComponent['styles']): React.CSSProperties => {
@@ -28,12 +29,21 @@ export const ColumnRenderComponent: React.FC<{
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }> = ({ component, isSelected, isHovered, onClick, onMouseEnter, onMouseLeave }) => {
+  const { addComponent } = useBuilderStore();
   const width = component.props?.width || 'auto';
   const minWidth = component.props?.minWidth || '200px';
   const maxWidth = component.props?.maxWidth || 'none';
   const gap = component.props?.gap || '16px';
   const alignItems = component.props?.alignItems || 'stretch';
   const justifyContent = component.props?.justifyContent || 'flex-start';
+
+  const { isOver, setNodeRef } = useDroppable({
+    id: `column-drop-zone-${component.id}`,
+    data: {
+      isLayoutDropZone: true,
+      parentId: component.id,
+    },
+  });
 
   const getColumnStyles = (): React.CSSProperties => {
     return {
@@ -55,10 +65,12 @@ export const ColumnRenderComponent: React.FC<{
 
   return (
     <div
+      ref={setNodeRef}
       className={`
         relative cursor-pointer transition-all duration-200
         ${isSelected ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}
         ${isHovered ? 'shadow-lg' : 'shadow-sm'}
+        ${isOver ? 'ring-2 ring-green-500 ring-opacity-50 bg-green-50' : ''}
         hover:shadow-md
       `}
       style={getColumnStyles()}

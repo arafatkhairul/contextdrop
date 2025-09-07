@@ -3,6 +3,7 @@ import { WebComponent } from '@/types/builder';
 import { useBuilderStore } from '@/store/builderStore';
 import { FiGrid } from 'react-icons/fi';
 import ComponentRenderer from '../ComponentRenderer';
+import { useDroppable } from '@dnd-kit/core';
 
 // Helper function to convert styles object to CSS string
 const stylesToCSS = (styles: WebComponent['styles']): React.CSSProperties => {
@@ -28,12 +29,21 @@ export const GridRenderComponent: React.FC<{
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }> = ({ component, isSelected, isHovered, onClick, onMouseEnter, onMouseLeave }) => {
+  const { addComponent } = useBuilderStore();
   const columns = component.props?.columns || 3;
   const rows = component.props?.rows || 2;
   const gap = component.props?.gap || '16px';
   const columnGap = component.props?.columnGap || '16px';
   const rowGap = component.props?.rowGap || '16px';
   const minHeight = component.props?.minHeight || '200px';
+
+  const { isOver, setNodeRef } = useDroppable({
+    id: `grid-drop-zone-${component.id}`,
+    data: {
+      isLayoutDropZone: true,
+      parentId: component.id,
+    },
+  });
 
   const getGridStyles = () => {
     return {
@@ -53,10 +63,12 @@ export const GridRenderComponent: React.FC<{
 
   return (
     <div
+      ref={setNodeRef}
       className={`
         relative cursor-pointer transition-all duration-200
         ${isSelected ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}
         ${isHovered ? 'shadow-lg' : 'shadow-sm'}
+        ${isOver ? 'ring-2 ring-green-500 ring-opacity-50 bg-green-50' : ''}
         hover:shadow-md
       `}
       style={getGridStyles()}

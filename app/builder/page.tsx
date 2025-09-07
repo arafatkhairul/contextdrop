@@ -50,6 +50,22 @@ export default function BuilderPage() {
           });
         }
       }
+      // Check if we're dropping on a layout component
+      else if (over.data.current?.isLayoutDropZone) {
+        const componentType = active.data.current?.type;
+        const config = componentRegistry[componentType];
+        const parentId = over.data.current?.parentId;
+
+        if (config && parentId) {
+          addComponent({
+            type: config.type as WebComponent['type'],
+            content: config.defaultContent,
+            styles: config.defaultStyles || {},
+            children: config.defaultProps.children || [],
+            props: config.defaultProps.props || {},
+          }, parentId);
+        }
+      }
       return;
     }
 

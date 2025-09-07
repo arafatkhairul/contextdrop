@@ -11,7 +11,7 @@ export const useBuilderStore = create<BuilderState>((set, get) => ({
   
   setHoveredComponent: (id) => set({ hoveredComponentId: id }),
 
-  addComponent: (component) => {
+  addComponent: (component, parentId?: string) => {
     const newComponent: WebComponent = {
       ...component,
       id: nanoid(),
@@ -25,10 +25,26 @@ export const useBuilderStore = create<BuilderState>((set, get) => ({
       },
     };
     
-    set((state) => ({
-      components: [...state.components, newComponent],
-      selectedComponentId: newComponent.id,
-    }));
+    if (parentId) {
+      // Add as child to parent component
+      set((state) => ({
+        components: state.components.map((comp) =>
+          comp.id === parentId
+            ? {
+                ...comp,
+                children: [...(comp.children || []), newComponent],
+              }
+            : comp
+        ),
+        selectedComponentId: newComponent.id,
+      }));
+    } else {
+      // Add to root level
+      set((state) => ({
+        components: [...state.components, newComponent],
+        selectedComponentId: newComponent.id,
+      }));
+    }
   },
 
   updateComponentStyles: (id, newStyles) => {
