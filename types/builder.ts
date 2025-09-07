@@ -83,7 +83,7 @@ export interface ComponentStyle {
 
 export interface WebComponent {
   id: string; // Unique ID for each component
-  type: 'Section' | 'Column' | 'Row' | 'Text' | 'Button' | 'Image' | 'Heading' | 'Paragraph' | 'Container' | 'Card' | 'Badge' | 'Alert' | 'Input' | 'Avatar' | 'Dropdown' | 'Flex' | 'Grid' | 'Navbar';
+  type: 'Section' | 'Column' | 'Row' | 'Text' | 'Button' | 'Image' | 'Heading' | 'Paragraph' | 'Container' | 'Card' | 'Badge' | 'Alert' | 'Input' | 'Avatar' | 'Dropdown' | 'Flex' | 'Grid' | 'Navbar' | 'Hero';
   content?: string; // For text-based components
   styles: ComponentStyle;
   children?: WebComponent[]; // For container components like Section or Column

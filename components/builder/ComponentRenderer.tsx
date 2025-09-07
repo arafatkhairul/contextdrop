@@ -8,6 +8,7 @@ import { GridRenderComponent } from '@/components/builder/elements/Grid';
 import { ColumnRenderComponent } from '@/components/builder/elements/Column';
 import { RowRenderComponent } from '@/components/builder/elements/Row';
 import { NavbarRenderComponent } from '@/components/builder/elements/Navbar';
+import { HeroRenderComponent } from '@/components/builder/elements/Hero';
 
 interface ComponentRendererProps {
   component: WebComponent;

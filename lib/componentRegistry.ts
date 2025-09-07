@@ -14,6 +14,7 @@ import { gridConfig } from '@/components/builder/elements/Grid';
 import { columnConfig } from '@/components/builder/elements/Column';
 import { rowConfig } from '@/components/builder/elements/Row';
 import { navbarConfig } from '@/components/builder/elements/Navbar';
+import { heroConfig } from '@/components/builder/elements/Hero';
 
 // This interface defines everything a component needs to function in the builder
 export interface ComponentConfig {
@@ -30,7 +31,7 @@ export interface ComponentConfig {
   icon: React.ComponentType<{ className?: string }>;
 
   // Category for grouping in sidebar
-  category: 'layout' | 'typography' | 'media' | 'interactive' | 'forms' | 'navigation' | 'general' | 'feedback';
+  category: 'layout' | 'typography' | 'media' | 'interactive' | 'forms' | 'navigation' | 'general' | 'feedback' | 'marketing';
 
   // The initial properties and styles when a new component is created
   defaultProps: Omit<WebComponent, 'id' | 'type'>;
@@ -78,6 +79,7 @@ registerComponent(gridConfig);
 registerComponent(columnConfig);
 registerComponent(rowConfig);
 registerComponent(navbarConfig);
+registerComponent(heroConfig);
 
 // Helper function to get all components by category
 export const getComponentsByCategory = (category: ComponentConfig['category']) => {
