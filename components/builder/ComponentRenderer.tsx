@@ -308,8 +308,18 @@ export default function ComponentRenderer({ component, isSelected, isHovered, on
     <div
       ref={setCombinedNodeRef}
       style={style}
-      className="relative"
+      className="relative group"
     >
+      {/* Drag Handle */}
+      <div
+        {...listeners}
+        {...attributes}
+        className="absolute -top-2 -left-2 bg-gray-600 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity cursor-move z-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        ⋮⋮
+      </div>
+      
       <RenderComponent
         component={component}
         isSelected={isSelected}
