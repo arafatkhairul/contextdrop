@@ -349,13 +349,13 @@ export const HeaderRenderComponent: React.FC<{
       case 'icon-left-links-center-cta-right-dark':
         return (
           <div className="flex items-center w-full">
-            <div className="flex items-center flex-shrink-0">
+            <div className="flex items-center flex-shrink-0 w-1/4">
               {renderLogo()}
             </div>
-            <div className="flex items-center justify-center flex-1 px-8">
+            <div className="flex items-center justify-center flex-1 w-2/4">
               {renderNavigation()}
             </div>
-            <div className="flex items-center flex-shrink-0">
+            <div className="flex items-center justify-end flex-shrink-0 w-1/4">
               {renderActions()}
             </div>
           </div>
