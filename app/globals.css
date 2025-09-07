@@ -128,3 +128,18 @@ body {
 .animate-glow {
   animation: glow 2s ease-in-out infinite;
 }
+
+/* Gradient Text Support */
+.gradient-text {
+  background: linear-gradient(45deg, #ff6b6b, #feca57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ensure gradient text works properly */
+[style*="background-clip: text"] {
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}

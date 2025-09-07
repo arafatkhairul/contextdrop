@@ -34,6 +34,13 @@ const GRADIENT_PRESETS = [
   { name: 'Pink', value: 'linear-gradient(45deg, #fd79a8, #e84393)' },
   { name: 'Gold', value: 'linear-gradient(45deg, #fdcb6e, #e17055)' },
   { name: 'Rainbow', value: 'linear-gradient(45deg, #ff7675, #74b9ff, #00b894, #fdcb6e)' },
+  { name: 'Fire', value: 'linear-gradient(45deg, #ff9a56, #ff6b6b)' },
+  { name: 'Ice', value: 'linear-gradient(45deg, #74b9ff, #0984e3)' },
+  { name: 'Nature', value: 'linear-gradient(45deg, #00b894, #00cec9)' },
+  { name: 'Royal', value: 'linear-gradient(45deg, #6c5ce7, #a29bfe)' },
+  { name: 'Sunrise', value: 'linear-gradient(45deg, #fdcb6e, #e17055)' },
+  { name: 'Midnight', value: 'linear-gradient(45deg, #2d3436, #636e72)' },
+  { name: 'Aurora', value: 'linear-gradient(45deg, #00cec9, #55a3ff, #fd79a8)' },
 ];
 
 // Helper function to convert styles object to CSS string
@@ -45,14 +52,19 @@ const stylesToCSS = (styles: WebComponent['styles']): React.CSSProperties => {
       // Handle special cases
       if (key === 'fontFamily' && value !== 'none') {
         css.fontFamily = `"${value}", sans-serif`;
-      } else if (key === 'textColor') {
-        css.color = value;
       } else if (key === 'background' && value !== 'none') {
+        // Apply gradient as background
         css.background = value;
+        // Make text transparent to show gradient
         (css as Record<string, string>).webkitBackgroundClip = 'text';
         (css as Record<string, string>).webkitTextFillColor = 'transparent';
         css.backgroundClip = 'text';
-      } else {
+        // Don't apply textColor when gradient is active
+        css.color = 'transparent';
+      } else if (key === 'textColor' && styles.background === 'none') {
+        // Only apply textColor if no gradient is active
+        css.color = value;
+      } else if (key !== 'textColor') {
         // Convert camelCase to kebab-case for CSS properties
         const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
         (css as Record<string, string | number>)[cssKey] = value;
