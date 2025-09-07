@@ -411,6 +411,7 @@ export const columnConfig = {
     borderRadius: '0',
     border: 'none',
     minHeight: '200px',
+    boxShadow: 'none',
   },
   defaultContent: '',
 };

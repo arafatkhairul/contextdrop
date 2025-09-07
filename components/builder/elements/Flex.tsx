@@ -397,6 +397,7 @@ export const flexConfig = {
     backgroundColor: 'transparent',
     borderRadius: '0',
     border: 'none',
+    boxShadow: 'none',
   },
   defaultContent: '',
 };

@@ -413,6 +413,7 @@ export const rowConfig = {
     backgroundColor: 'transparent',
     borderRadius: '0',
     border: 'none',
+    boxShadow: 'none',
   },
   defaultContent: '',
 };
