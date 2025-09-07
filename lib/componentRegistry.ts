@@ -13,8 +13,8 @@ import { flexConfig } from '@/components/builder/elements/Flex';
 import { gridConfig } from '@/components/builder/elements/Grid';
 import { columnConfig } from '@/components/builder/elements/Column';
 import { rowConfig } from '@/components/builder/elements/Row';
-import { navbarConfig } from '@/components/builder/elements/Navbar';
 import { heroConfig } from '@/components/builder/elements/Hero';
+import { headerConfig } from '@/components/builder/elements/Header';
 
 // This interface defines everything a component needs to function in the builder
 export interface ComponentConfig {
@@ -78,8 +78,8 @@ registerComponent(flexConfig);
 registerComponent(gridConfig);
 registerComponent(columnConfig);
 registerComponent(rowConfig);
-registerComponent(navbarConfig);
 registerComponent(heroConfig);
+registerComponent(headerConfig);
 
 // Helper function to get all components by category
 export const getComponentsByCategory = (category: ComponentConfig['category']) => {

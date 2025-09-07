@@ -7,8 +7,8 @@ import { FlexRenderComponent } from '@/components/builder/elements/Flex';
 import { GridRenderComponent } from '@/components/builder/elements/Grid';
 import { ColumnRenderComponent } from '@/components/builder/elements/Column';
 import { RowRenderComponent } from '@/components/builder/elements/Row';
-import { NavbarRenderComponent } from '@/components/builder/elements/Navbar';
 import { HeroRenderComponent } from '@/components/builder/elements/Hero';
+import { HeaderRenderComponent } from '@/components/builder/elements/Header';
 
 interface ComponentRendererProps {
   component: WebComponent;
